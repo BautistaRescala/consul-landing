@@ -17,10 +17,8 @@
 
   <link rel="stylesheet" href="style.css">
   <title>Consultorio Rescala</title>
-  <!-- Google analytics script -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ9H8YPT87">
-  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ9H8YPT87"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -28,6 +26,23 @@
 
     gtag('config', 'G-WQ9H8YPT87');
   </script>
+  <!-- Event snippet for Book appointment conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18369314063/FObwCOTCxOQcEI_6lbdE',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+
 </head>
 
 <body>
@@ -62,7 +77,8 @@
           Avellaneda, Calle 16 altura 319.
         </p>
         <div class="container-header-big-contact">
-          <a class="normal-text contact-button" href="https://wa.me/5493482665858">
+          <a class="normal-text contact-button" href="https://wa.me/5493482665858"
+            onclick="return gtag_report_conversion('https://wa.me/5493482665858')">
             Ponte en contacto
           </a>
         </div>
@@ -72,7 +88,8 @@
           <img src="/assets/shinytooth.png" alt="logo tooth">
         </div>
         <div class="container-header-small-2">
-          <a class="normal-text contact-button" href="https://wa.me/5493482665858">
+          <a class="normal-text contact-button" href="https://wa.me/5493482665858"
+            onclick="return gtag_report_conversion('https://wa.me/5493482665858')">
             Ponte en contacto
           </a>
         </div>
